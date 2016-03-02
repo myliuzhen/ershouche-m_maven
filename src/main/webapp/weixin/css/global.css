@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document for m.tuanche.com  byzss */
+html{}
+body,html{height:100%;}
+input,button,textarea,select{font-family:"Microsoft YaHei","SimHei";}
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section,button{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:"Microsoft YaHei","SimHei","SimSong";vertical-align:baseline;}
+ul,li,dl,dt,dd,p{margin:0;padding:0;text-indent:0;}
+ul,li{list-style:none;}
+input{background:none;border:none;}
+table{border-collapse:0;border-spacing:0;jerry:expression(cellSpacing="0");}
+button{border:0;cursor:pointer;margin:0;}
+textarea{resize:none;}
+em,i{font-style:normal;}
+a img{border:none;}
+img{width:100%;height:auto;display:block;}
+:focus{outline:0;}
+.hide{display:none;}
+.clear{clear:both;}
+.clearfix{zoom:1;}
+.clearfix:after{clear:both;display:block;visibility:hidden;height:0;line-height:0;content:'';}
+.fl{float:left;}
+.fr{float:right;}

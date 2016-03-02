@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.standard.usedCarMapper">
+	<resultMap id="carInfoDto" type="com.tcw.car.dto.CarInfoDto" >
+		<id property="id" column="CAR_ID" />
+		<result property="carCode" column="CAR_CODE" />
+		<result property="carInfo" column="CAR_INFO" />
+		<result property="manufacturer" column="MANUFACTURER" />
+		<result property="model" column="MODEL" />
+		<result property="license" column="LICENSE" />
+		<result property="seriesName" column="SERIES_NAME" />
+		<result property="color" column="COLOR" />
+		<result property="rank" column="RANK" />
+		<result property="regDate" column="REG_DATE" />
+		<result property="mileage" column="MILEAGE" />
+		<result property="carFirstImg" column="CAR_FIRST_IMG" />
+		<result property="factoryTime" column="FACTORY_TIME"/>
+		<result property="purchaserClosingCost" column="PURCHASER_CLOSING_COST" />
+		<result property="country" column="COUNTRY"/>
+		<result property="dealTime" column="ON_DATE"/>
+		<result property="mobile" column="MOBILE"/>
+		<result property="cost" column="SELLER_CLOSING_COST"/>
+		<result property="carBaseId" column="CAR_BASE_ID"/>
+		<result property="orderCeatedTime" column="ORDER_CREATED_DATE"/>
+		<result property="violation" column="VIOLATION"/>
+		<result property="storesName" column="STORES_NAME"/>
+		<result property="ownerIdType" column="OWNER_ID_TYPE"/>
+		<result property="isTravel" column="IS_TRAVEL"/>
+		<result property="isPurchase" column="IS_PURCHASE_TAX"/>
+		<result property="isInsurance" column="IS_INSURANCE"/>
+		<result property="isInvoice" column="IS_INVOICE"/>
+		<result property="yearStyle" column="YEAR_STYLE"/>
+		<result property="localImport" column="LOCAL_IMPORT"/>
+		<result property="emissionGb" column="EMISSION_GB"/>
+		<result property="registry" column="REGISTRY"/>
+	</resultMap>
+	<resultMap id="ctmManufacturer" type="com.tcw.car.entity.CtmManufacturer" >
+		<id column="MANUFACTURER_CODE" property="manufacturerCode" />
+		<result column="MANUFACTURER_NAME" property="manufacturerName" />
+		<result column="BRAND_NAME" property="brandName" />
+		<result column="COUNTRY_NAME" property="countryName" />
+		<result column="CAR_NATURE" property="carNature" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="TIMELINESS" property="timeliness" />
+		<result column="DELETE_TAG" property="deleteTag" />
+		<result column="TS" property="ts" jdbcType="TIMESTAMP" />
+		<result column="RESERVED_FIELD1" property="reservedField1" />
+		<result column="RESERVED_FIELD2" property="reservedField2" />
+	</resultMap>
+	<resultMap id="ctmLine" type="com.tcw.car.entity.CtmLine" >
+		<id column="SERIES_CODE" property="seriesCode" />
+		<result column="MANUFACTURER_CODE" property="manufacturerCode" />
+		<result column="MANUFACTURER_NAME" property="manufacturer" />
+		<result column="SERIES_NAME" property="seriesName" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="TIMELINESS" property="timeliness" />
+		<result column="DELETE_TAG" property="deleteTag" />
+		<result column="TS" property="ts"  />
+		<result column="CAR_TYPE" property="carModel"  />
+		<result column="RESERVED_FIELD1" property="reservedField1" />
+		<result column="RESERVED_FIELD2" property="reservedField2" />
+	</resultMap>
+	<resultMap id="VdsTestReportJson" type="com.tcw.car.entity.VdsTestReportJson" >
+		<id column="ID" property="id" />
+		<result column="REPORT_CODE" property="reportCode" />
+		<result column="CREATED" property="created" />
+		<result column="CAR_LEVEL" property="carLevel"/>
+		<result column="BASE_PHOTOS" property="basePhotos"  jdbcType="CLOB" />
+		<result column="PAINT_JC" property="paintJc" jdbcType="CLOB" />
+		<result column="APPEARANCE_JC" property="appearanceJc" jdbcType="CLOB" />
+		<result column="ACCIDENT_JC" property="accidentJc" jdbcType="CLOB" />
+		<result column="THROUGH_WATER_JC" property="throughWaterJc"  jdbcType="CLOB" />
+		<result column="THROUGH_FIRE_JC" property="throughFireJc"  jdbcType="CLOB" />
+		<result column="CONFIG_JC" property="configJc" jdbcType="CLOB" />
+		<result column="INNER_JC" property="innerJc" jdbcType="CLOB" />
+		<result column="CAR_VERIFICATION" property="carVerification" jdbcType="CLOB"/>
+		<result column="APPEARANCE_REP_IMG" property="appearanceRepImg" jdbcType="CLOB" />
+		<result column="ZG_IMG" property="zgImg" jdbcType="CLOB" />
+	    
+	</resultMap>
+	 
+	 
+	<cache 
+		eviction="LRU"			
+		flushInterval="86400000"	
+		size="2048"			
+		readOnly="true" />
+	<!-- 查询成交数据通用SQL -->
+  <sql id="SelectDealDataSql" >
+		<!-- 更换数据库做过修改 -->
+	    SELECT T.CAR_BASE_ID ID,
+	    	   T.CAR_FIRST_IMG,
+		       T2.REG_DATE,
+		       T2.CAR_INFO,
+		       T2.MANUFACTURER,
+		       T2.SERIES_NAME,
+		       T2.MODEL,
+		       T1.SELLER_CLOSING_COST AS PURCHASER_CLOSING_COST,
+		       T1.CAR_CODE,
+		       T3.MILEAGE,
+		       T1.SELLER_CLOSING_COST,
+		       T.CAR_BASE_ID,
+		       T1.ORDER_CREATED_DATE,
+		       STORE.STORES_NAME,
+		       VIOLATION,
+		       OWNER_ID_TYPE,
+		       IS_TRAVEL,
+		       IS_PURCHASE_TAX,
+		       IS_INSURANCE,
+		       IS_INVOICE,
+		       T2.YEAR_STYLE,
+		       T2.LOCAL_IMPORT,
+		       T2.EMISSION_GB,
+		       T1.ON_DATE,
+		       T.REGISTRY
+		  FROM TRA_CAR_EXPAND T
+		  LEFT JOIN SYS_STORES STORE ON STORE.ID=T.STORES_ID
+		  JOIN TRA_MAIN_ORDER T1 ON T1.CAR_CODE = T.CAR_CODE
+		  JOIN TRA_CAR_BASE T2 ON T2.ID = T.CAR_BASE_ID <!--  AND T2.CAR_INFO IS NOT NULL -->
+		  JOIN VDS_TESTREPORT_BASE T3 ON T3.CAR_CODE = T.CAR_CODE
+		                                <!--   AND T3.TIMELINESS = 0
+		                                  AND T3.DELETE_TAG = 0 -->
+		<!--  WHERE T1.STORES_ID != '234567890' -->
+		  <!--  AND T1.DEAL_TYPE IN ('1', '2', '3') -->
+		  <!--  AND T1.DELETE_TAG = '0'
+		   AND T1.TIMELINESS = '0'
+		   AND T.TIMELINESS = 0
+		   AND T.DELETE_TAG = 0 -->
+		 <!--   AND T.CAR_FIRST_IMG is not null -->
+		  <!--  AND T1.ON_DATE> DATE_FORMAT('2015-05-01','%Y-%m-%d%H:%i:%s') -->
+		   				   
+	</sql>
+	<select id="getDealCarInfoByIds" resultMap="carInfoDto"   >
+		SELECT T.CAR_BASE_ID ID,
+	    	   T.CAR_FIRST_IMG,
+		       T2.REG_DATE,
+		       T2.CAR_INFO,
+		       T2.MANUFACTURER,
+		       T2.SERIES_NAME,
+		       T2.MODEL,
+		       T1.SELLER_CLOSING_COST AS PURCHASER_CLOSING_COST,
+		       T1.CAR_CODE,
+		       T3.MILEAGE,
+		       T1.SELLER_CLOSING_COST,
+		       T.CAR_BASE_ID,
+		       T1.ORDER_CREATED_DATE,
+		       STORE.STORES_NAME,
+		       VIOLATION,
+		       OWNER_ID_TYPE,
+		       IS_TRAVEL,
+		       IS_PURCHASE_TAX,
+		       IS_INSURANCE,
+		       IS_INVOICE,
+		       T2.YEAR_STYLE,
+		       T2.LOCAL_IMPORT,
+		       T2.EMISSION_GB,
+		       T1.ON_DATE,
+		       T.REGISTRY
+		  FROM TRA_CAR_EXPAND T
+		  LEFT JOIN SYS_STORES STORE ON STORE.ID=T.STORES_ID
+		  JOIN TRA_MAIN_ORDER T1 ON T1.CAR_CODE = T.CAR_CODE
+		  JOIN TRA_CAR_BASE T2 ON T2.ID = T.CAR_BASE_ID AND T2.CAR_INFO IS NOT NULL
+		  JOIN VDS_TESTREPORT_BASE T3 ON T3.CAR_CODE = T.CAR_CODE
+		                                  AND T3.TIMELINESS = 0
+		                                  AND T3.DELETE_TAG = 0
+		 <where>
+		 	<if test="ids != null and ids != ''">
+		 		AND T.CAR_CODE  IN
+				<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+				 	#{item}
+				</foreach> 
+			</if>
+		 </where>
+	</select>
+	<!-- 通过厂商code或车系code或车辆国家 获取已成交车辆信息列表 -->
+	<select id="getDealCarInfo" resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectDealDataSql" />
+		<if test="seriesCode != null and seriesCode != ''">
+       		 AND T2.SERIES_NAME = (SELECT LINE.SERIES_NAME FROM CTM_LINE LINE WHERE LINE.SERIES_CODE=#{seriesCode})
+		</if>
+		<if test="manufacturerCode != null and manufacturerCode != '' or country != null and country != ''">
+       		 AND T2.MANUFACTURER IN (SELECT FACTURER.MANUFACTURER_NAME 
+       		 						   FROM CTM_MANUFACTURER FACTURER 
+       		 						  WHERE FACTURER.DELETE_TAG = '0'
+			<if test="countrys != null and countrys != ''">
+       		 						    AND FACTURER.RESERVED_FIELD1 IN
+				<foreach collection="countrys" index="index" item="item" open="(" separator="," close=")">  
+										 	#{item}
+				</foreach> 
+			</if>
+			<if test="manufacturerCode != null and manufacturerCode != ''">
+       		 						 	AND FACTURER.MANUFACTURER_CODE=#{manufacturerCode}
+			</if>
+       		 						 )
+		</if>
+       	ORDER BY T1.ON_DATE DESC 
+		<if test="rowNum != null">
+       	LIMIT 0,#{rowNum}
+		</if>
+	</select>
+	<!-- 通过厂商名称获或车系名称 取已成交车辆信息列表 -->
+	<select id="getDealCarInfoByName" resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectDealDataSql" />
+		<if test="seriesName != null and seriesName != ''">
+       		AND T2.SERIES_NAME = #{seriesName}
+		</if>
+		<if test="manufacturerCode != null and manufacturerCode != ''">
+       		AND T2.MANUFACTURER = (SELECT FACTURER.MANUFACTURER_NAME FROM CTM_MANUFACTURER FACTURER WHERE FACTURER.MANUFACTURER_CODE=#{manufacturerCode})
+		</if>
+		<if test="ids != null and ids != ''">
+	 		AND T.CAR_BASE_ID NOT IN
+			<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">  
+			 	#{item}
+			</foreach> 
+		</if>
+      ORDER BY T1.ON_DATE DESC
+		<if test="rowNum != null">
+       	LIMIT 0,#{rowNum}
+		</if>
+	</select>
+	<!-- 在团车e卖车卖掉旧车卖掉的总数-->
+	<select id="getDealCount" resultType="int" useCache="false">
+		SELECT COUNT(*) FROM TRA_MAIN_ORDER
+	</select>
+	<!-- 通过车牌号获取卖家电话号码 -->
+	<select id="getUserMobileByLicense"  resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto">
+		SELECT T.USER_MOBILE AS MOBILE
+		FROM CUS_SELLER_INFO T
+		WHERE T.SELLER_CODE =(SELECT T1.SELLER_CODE FROM TRA_CAR_EXPAND T1 WHERE T1.CAR_CODE =#{carCode} )
+		GROUP BY T.USER_MOBILE
+	</select>
+	<!-- 获取所有厂商品牌 -->
+	<select id="getAllManufacturer" resultMap="ctmManufacturer" useCache="false">
+		<!-- 更换数据库做过修改 -->
+  	 SELECT T.MANUFACTURER_CODE,T.MANUFACTURER_NAME
+	 FROM CTM_MANUFACTURER T
+	 WHERE T.DELETE_TAG = '0' 
+	 ORDER BY  convert(T.manufacturer_name USING gbk)  ASC
+	</select>
+  
+  
+	<!-- 查询车系通用SQL -->
+	<sql id="SelectCtmLineSql" >
+	    SELECT DISTINCT T.MANUFACTURER_CODE,T.SERIES_NAME,T.SERIES_CODE ,C.CAR_TYPE
+		  FROM CTM_LINE T LEFT JOIN CTM_VEHICLE_TYPE C ON T.SERIES_CODE=C.SERIES_CODE
+		 WHERE T.DELETE_TAG = '0'
+		<if test="seriesCode != null">
+		   AND T.SERIES_CODE = #{seriesCode}
+		</if>
+		<if test="manufacturerCode != null">
+		   AND T.MANUFACTURER_CODE = #{manufacturerCode}
+		</if>
+	</sql>
+	<sql id="SelectCtmLineSql1" >
+	    SELECT DISTINCT T.MANUFACTURER_CODE,T.SERIES_NAME,T.SERIES_CODE
+		  FROM CTM_LINE T 
+		 WHERE T.DELETE_TAG = '0'
+		<if test="seriesCode != null">
+		   AND T.SERIES_CODE = #{seriesCode}
+		</if>
+		<if test="manufacturerCode != null">
+		   AND T.MANUFACTURER_CODE = #{manufacturerCode}
+		</if>
+	</sql>
+	<!-- 获取车系实体 -->
+	<select id="getCtmLine" resultMap="ctmLine" parameterType="com.tcw.car.entity.CtmLine">
+		<include refid="SelectCtmLineSql" />
+	</select>
+	<!-- 获取车系列表 升序 -->
+	<select id="getCtmLineOrderBySeriesNameAsc" resultMap="ctmLine" parameterType="com.tcw.car.entity.CtmLine">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectCtmLineSql" />
+	ORDER BY  convert(T.SERIES_NAME USING gbk)  ASC
+	</select>
+	<select id="getCtmLineOrderBySeriesNameAsc1" resultMap="ctmLine" parameterType="com.tcw.car.entity.CtmLine">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectCtmLineSql1" />
+	ORDER BY  convert(T.SERIES_NAME USING gbk)  ASC
+	</select>
+  
+	<!-- 二手车新版页面获取成交案例车型 -->
+	<select id="getDealCarModel" resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+		<include refid="SelectDealDataSql" />
+		<if test="seriesCode != null and seriesCode != ''">
+		           		 AND T2.SERIES_NAME = (SELECT LINE.SERIES_NAME FROM CTM_LINE LINE WHERE LINE.SERIES_CODE=#{seriesCode})
+		</if>
+		<if test="manufacturerCode != null and manufacturerCode != ''">
+		           		 AND T2.manufacturer = (SELECT CM.MANUFACTURER_NAME FROM CTM_MANUFACTURER CM WHERE CM.MANUFACTURER_CODE=#{manufacturerCode})
+		</if>
+		<if test="countrys != null and countrys != ''">
+		           		 AND T2.MANUFACTURER IN (SELECT FACTURER.manufacturer_name FROM CTM_MANUFACTURER FACTURER , ctm_line line , ctm_vehicle_type type
+		           		 						  where FACTURER.DELETE_TAG = '0' and FACTURER.manufacturer_code= line.manufacturer_code and line.series_code=type.series_code 
+			<if test="countrys != null and countrys != ''">
+		           		 						    and type.country in
+				<foreach collection="countrys" index="index" item="item" open="(" separator="," close=")">  
+													 	#{item}
+				</foreach> 
+			</if>
+		           		 						 )
+		</if>
+		<if test="carCode!=null and carCode!=''">
+		           		AND T1.CAR_CODE=#{carCode}
+		</if>
+		<if test="cost!=null and cost==1">
+		           		AND T1.SELLER_CLOSING_COST >50000 AND 100000>= T1.SELLER_CLOSING_COST
+		</if>
+		<if test="cost!=null and cost==2">
+		           		AND T1.SELLER_CLOSING_COST >100000 AND 200000>= T1.SELLER_CLOSING_COST
+		</if>
+		<if test="cost!=null and cost==3">
+		           		AND T1.SELLER_CLOSING_COST >200000 AND 300000>= T1.SELLER_CLOSING_COST
+		</if>
+		           ORDER BY T1.ON_DATE DESC
+	</select>
+	<!-- 二手车新版 获取最新成交案例-->
+	<select id="getNewOrder" resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectDealDataSql" />
+				   		AND T1.SELLER_CLOSING_COST>8000
+		<if test="null!=manufacturer and manufacturer!=''">
+		          		AND manufacturer =#{manufacturer}
+		</if>
+		<if test="null!=seriesName and seriesName!=''">
+		          		AND seriesName =#{seriesName}
+		</if>
+		<if test="null!=carCode and carCode!=''">
+		          		AND T1.CAR_CODE =#{carCode}
+		</if>
+		<if test="null!=n and n!=''">
+		          		limit 0,#{n}
+		</if>
+	</select>
+	<!-- 二手车新版页面 获取所有汽车类型（轿车 suv之类） -->
+	<select id="getAllCarModel" resultMap="carInfoDto" useCache="false">
+  	SELECT DISTINCT(CAR_TYPE) MODEL FROM CTM_VEHICLE_TYPE
+	</select>
+  
+  
+  
+	<select id="selectOrderList" resultMap="carInfoDto" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+		<!-- 更换数据库做过修改 -->
+		<include refid="SelectDealDataSql" />
+				   AND  T1.SELLER_CLOSING_COST>8000 AND T1.SELLER_CLOSING_COST &lt; 300000
+		<if test="seriesCode != null and seriesCode != ''">
+           		   AND T2.SERIES_NAME like CONCAT('%',(SELECT LINE.SERIES_NAME FROM CTM_LINE LINE WHERE LINE.SERIES_CODE=#{seriesCode}),'%') 
+		</if>
+		<if test="manufacturerCode != null and manufacturerCode != ''">
+           		   AND T2.manufacturer = (SELECT CM.MANUFACTURER_NAME FROM CTM_MANUFACTURER CM WHERE CM.MANUFACTURER_CODE=#{manufacturerCode})
+		</if>
+		<if test="indexSearch!=null and indexSearch!=''">
+           		   AND  CAR_INFO LIKE CONCAT('%',#{indexSearch},'%')
+		</if>
+		<if test="resultSearch!=null and resultSearch!=''">
+		           		AND  CAR_INFO LIKE CONCAT('%',#{resultSearch},'%')
+		</if>
+		<if test="carAgeArea!=null">
+			<if test="carAgeArea=='age2'">
+   				AND NOW() - INTERVAL 365 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age3'">
+       			AND NOW() - INTERVAL 365*1 DAY > DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*2 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age4'">
+       			AND NOW() - INTERVAL 365*3 DAY > DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*5 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age5'">
+       			AND NOW() - INTERVAL 365*5 DAY > DATE_FORMAT(reg_date,'%Y-%m-%d') 
+			</if>
+		</if>
+			            
+		<if test="orderWay!=null and orderWay!=''">
+			           ORDER BY ${orderWay}
+		</if>
+		<if test="orderWay==null or orderWay==''">
+		           		ORDER BY T1.ON_DATE DESC
+		</if>
+	</select>
+	<select id="countOrderList" resultType="int" parameterType="com.tcw.car.dto.CarInfoDto" useCache="false">
+   		SELECT     
+			count(*)
+		  FROM TRA_CAR_EXPAND T
+		  LEFT JOIN SYS_STORES STORE ON STORE.ID=T.STORES_ID
+		  JOIN TRA_MAIN_ORDER T1 ON T1.CAR_CODE = T.CAR_CODE
+		  JOIN TRA_CAR_BASE T2 ON T2.ID = T.CAR_BASE_ID AND T2.CAR_INFO IS NOT NULL
+		  JOIN VDS_TESTREPORT_BASE T3 ON T3.CAR_CODE = T.CAR_CODE
+		                                  AND T3.TIMELINESS = 0
+		                                  AND T3.DELETE_TAG = 0
+		 WHERE T1.STORES_ID != '234567890'
+		   AND T1.DEAL_TYPE IN ('1', '2', '3')
+		   AND T1.DELETE_TAG = '0'
+		   AND T1.TIMELINESS = '0'
+		   AND T.TIMELINESS = 0
+		   AND T.DELETE_TAG = 0
+		   AND T.CAR_FIRST_IMG is not null
+		   AND T1.ON_DATE> DATE_FORMAT('2015-05-01','%Y-%m-%d%H:%i:%s')
+	   	   AND  T1.SELLER_CLOSING_COST>8000 AND T1.SELLER_CLOSING_COST &lt; 300000
+		<if test="seriesCode != null and seriesCode != ''">
+       		   AND T2.SERIES_NAME like CONCAT('%',(SELECT LINE.SERIES_NAME FROM CTM_LINE LINE WHERE LINE.SERIES_CODE=#{seriesCode}),'%') 
+		</if>
+		<if test="manufacturerCode != null and manufacturerCode != ''">
+       		   AND T2.manufacturer = (SELECT CM.MANUFACTURER_NAME FROM CTM_MANUFACTURER CM WHERE CM.MANUFACTURER_CODE=#{manufacturerCode})
+		</if>
+		<if test="indexSearch!=null and indexSearch!=''">
+           	   AND  CAR_INFO LIKE CONCAT('%',#{indexSearch},'%')
+		</if>
+		<if test="resultSearch!=null and resultSearch!=''">
+           	   AND  CAR_INFO LIKE CONCAT('%',#{resultSearch},'%')
+		</if>
+		<if test="carAgeArea!=null">
+			<if test="carAgeArea=='age2'">
+   				AND NOW() - INTERVAL 365 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age3'">
+       			AND NOW() - INTERVAL 365*1 DAY> DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*2 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age4'">
+       			AND NOW() - INTERVAL 365*3 DAY > DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*5 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+			</if>
+			<if test="carAgeArea=='age5'">
+       			AND NOW() - INTERVAL 365*5 DAY > DATE_FORMAT(reg_date,'%Y-%m-%d') 
+			</if>
+		</if>
+	</select>
+  
+	<select id="getReportInfo" parameterType="string" resultMap="VdsTestReportJson">
+		SELECT j.* ,b.CAR_LEVEL
+		FROM vds_testreport_json j,vds_testreport_base b
+		WHERE j.report_code = b.report_code
+		AND B.car_code=#{carCode}
+	</select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+	<!-- 查询车系通用SQL -->
+</mapper>

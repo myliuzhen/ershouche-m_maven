@@ -1,0 +1,34 @@
+原型地址：http://7nfdrc.axshare.com/#p=首页
+
+1、资源文件访问方式：
+如：Constants.MCONFIG.getString("ERP_CREAT_CUSTOMER_URL");
+
+2、一个城市创建一个大的目录，如北京-bj，WebContent下resources中存放各城市公用的文件
+
+3、百度统计规则：a.按钮要标注ID  b.全局共用统计代码且每个页面都会访问
+
+4、渠道规则：参照PC端，公共js中设置方法；//更新a（目的是保证单个会话cookie中有v值）
+	a.先从cookie中查询是否存在v值，若有则忽略b、c步骤；若没有则判断地址栏中是否存在参数"v" 
+	b.地址栏有的话，把v值存入cookie，然后地址栏追加参数v=1001  
+	c.地址栏若没有，则默认v值为1001并存储cookie中，然后地址栏追加参数v=1001 
+	d.报名数据保存后台时，前端从cookie中取v值，往后台传参保存
+	
+5、静态文件规则，css文件放到页面上部，js文件放到页面底部	
+
+6、查看文件/resources/js/jquery.sys.js  和   /resources/js/m.base.js，分别代表全局系统类和全局自定义类
+
+7、域名规则：
+	a.域名m站改为：m.tuanche.com/业务线/城市/页面/?参数  如： m.tuanche.com/ershouche/bj/maiche/?v=1101 
+	b.业务线的名字即日起更新为ershouche
+	c.页面的命名用业务全拼代替，比如卖车，就是maiche，如果遇到全拼一样的情况就换个名字，比如卖车和买车一样，那么买车就可以改成gouche
+   所以，与买车相关的，文件夹取名为gouche，后台接口类以gouche开头；卖车相关的，文件夹取名为maiche，后台接口类以maiche开头。
+   
+8、接口调用问题：
+ 	车型接口相关：
+   	评估页面，http://127.0.0.1:8080/ershouche/guzhi/getCarBrands  (POST)
+            其他页面，http://127.0.0.1:8080/ershouche/car/getCarBrands   (POST)
+            城市列表接口：
+    http://127.0.0.1:8080/ershouche/guzhi/getAllCitys  (POST)
+
+
+有什么其他想法可以写在这里面共享

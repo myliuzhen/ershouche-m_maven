@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.standard.UserRegisterMapper" >
+   <resultMap id="BaseResultMap" type="com.tcw.maiche.entity.UserRegister" >
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="APPLY_TIME" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="IS_DELETE" property="isDelete" jdbcType="CHAR" />
+    <result column="TIMELINESS" property="timeliness" jdbcType="CHAR" />
+    <result column="TS" property="ts" jdbcType="TIMESTAMP" />
+    <result column="IS_NOTIFY" property="isNotify" jdbcType="CHAR" />
+    <result column="NOTIFY_TIME" property="notifyTime" jdbcType="TIMESTAMP" />
+    <result column="CAR_MODEL" property="carModel" jdbcType="VARCHAR" />
+    <result column="VISIT_SITE" property="visitSite" jdbcType="VARCHAR" />
+    <result column="FROM_T" property="fromT" jdbcType="VARCHAR" />
+    <result column="SHOP" property="shop" jdbcType="VARCHAR" />
+    <result column="CAR_YEAR" property="carYear" jdbcType="VARCHAR" />
+    <result column="BRAND_NAME" property="brandName" jdbcType="VARCHAR" />
+    <result column="BIDDING_CODE" property="biddingCode" jdbcType="VARCHAR" />
+    <result column="BIDDING_KID" property="biddingKid" jdbcType="VARCHAR" />
+    <result column="BUSINESS" property="business" jdbcType="VARCHAR" />
+    <result column="AREA_NAME" property="areaName" jdbcType="VARCHAR" />
+    <result column="QC" property="qc" jdbcType="VARCHAR" />
+    <result column="SUB_FROM" property="subFrom" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_NAME, MOBILE, APPLY_TIME, IS_DELETE, TIMELINESS, TS, IS_NOTIFY, NOTIFY_TIME, 
+    CAR_MODEL, VISIT_SITE, FROM_T, SHOP, CAR_YEAR, BRAND_NAME, BIDDING_CODE, BIDDING_KID, 
+    BUSINESS, AREA_NAME, QC, SUB_FROM, CITY_ID
+  </sql>
+  <insert id="insert" parameterType="com.tcw.maiche.entity.UserRegister" >
+    insert into user_register (USER_ID, USER_NAME, MOBILE, 
+      APPLY_TIME, IS_DELETE, TIMELINESS, 
+      TS, IS_NOTIFY, NOTIFY_TIME, 
+      CAR_MODEL, VISIT_SITE, FROM_T, 
+      SHOP, CAR_YEAR, BRAND_NAME, 
+      BIDDING_CODE, BIDDING_KID, BUSINESS, 
+      AREA_NAME, QC, SUB_FROM, 
+      CITY_ID)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=CHAR}, #{timeliness,jdbcType=CHAR}, 
+      #{ts,jdbcType=TIMESTAMP}, #{isNotify,jdbcType=CHAR}, #{notifyTime,jdbcType=TIMESTAMP}, 
+      #{carModel,jdbcType=VARCHAR}, #{visitSite,jdbcType=VARCHAR}, #{fromT,jdbcType=VARCHAR}, 
+      #{shop,jdbcType=VARCHAR}, #{carYear,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, 
+      #{biddingCode,jdbcType=VARCHAR}, #{biddingKid,jdbcType=VARCHAR}, #{business,jdbcType=VARCHAR}, 
+      #{areaName,jdbcType=VARCHAR}, #{qc,jdbcType=VARCHAR}, #{subFrom,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tcw.maiche.entity.UserRegister" >
+    insert into user_register
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="applyTime != null" >
+        APPLY_TIME,
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE,
+      </if>
+      <if test="timeliness != null" >
+        TIMELINESS,
+      </if>
+      <if test="ts != null" >
+        TS,
+      </if>
+      <if test="isNotify != null" >
+        IS_NOTIFY,
+      </if>
+      <if test="notifyTime != null" >
+        NOTIFY_TIME,
+      </if>
+      <if test="carModel != null" >
+        CAR_MODEL,
+      </if>
+      <if test="visitSite != null" >
+        VISIT_SITE,
+      </if>
+      <if test="fromT != null" >
+        FROM_T,
+      </if>
+      <if test="shop != null" >
+        SHOP,
+      </if>
+      <if test="carYear != null" >
+        CAR_YEAR,
+      </if>
+      <if test="brandName != null" >
+        BRAND_NAME,
+      </if>
+      <if test="biddingCode != null" >
+        BIDDING_CODE,
+      </if>
+      <if test="biddingKid != null" >
+        BIDDING_KID,
+      </if>
+      <if test="business != null" >
+        BUSINESS,
+      </if>
+      <if test="areaName != null" >
+        AREA_NAME,
+      </if>
+      <if test="qc != null" >
+        QC,
+      </if>
+      <if test="subFrom != null" >
+        SUB_FROM,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="timeliness != null" >
+        #{timeliness,jdbcType=CHAR},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isNotify != null" >
+        #{isNotify,jdbcType=CHAR},
+      </if>
+      <if test="notifyTime != null" >
+        #{notifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carModel != null" >
+        #{carModel,jdbcType=VARCHAR},
+      </if>
+      <if test="visitSite != null" >
+        #{visitSite,jdbcType=VARCHAR},
+      </if>
+      <if test="fromT != null" >
+        #{fromT,jdbcType=VARCHAR},
+      </if>
+      <if test="shop != null" >
+        #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="carYear != null" >
+        #{carYear,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingCode != null" >
+        #{biddingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingKid != null" >
+        #{biddingKid,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null" >
+        #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="qc != null" >
+        #{qc,jdbcType=VARCHAR},
+      </if>
+      <if test="subFrom != null" >
+        #{subFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  	<!-- 插入买车 -->
+	<insert id="insertBuyerRegister"  parameterType="com.tcw.gouche.entity.BuyerRegister">
+	    INSERT INTO  C_BUYER_REGISTER (
+		<trim suffix="" suffixOverrides=",">
+			<if test=" userId!= null">
+	   			USER_ID,
+			</if>
+			<if test=" userName!= null">
+	   			USER_NAME,
+			</if>
+			<if test=" mobile!= null">
+	   			MOBILE,
+			</if>
+			<if test=" applyTime!= null">
+	   			APPLY_TIME,
+			</if>
+			<if test=" visitSite!= null">
+	   			VISIT_SITE,
+			</if>
+			<if test=" fromT!= null">
+	   			FROM_T,
+			</if>
+			<if test="isDelete!=null">
+				IS_DELETE,
+			</if>
+			<if test="areaName !=null">
+				AREA_NAME,
+			</if>
+			<if test="cityId !=null">
+				CITY_ID,
+			</if>
+			<if test="budget !=null">
+				BUDGET,
+			</if>
+			<if test="mGoucheType !=null">
+				M_GOUCHE_TYPE,
+			</if>
+		</trim>
+	   ) values(
+		<trim suffix="" suffixOverrides=",">
+			<if test=" userId!= null">
+	   			#{userId},
+			</if>
+			<if test=" userName!= null">
+	   			#{userName},
+			</if>
+			<if test=" mobile!= null">
+	   			#{mobile},
+			</if>
+			<if test=" applyTime!= null">
+	   			#{applyTime},
+			</if>
+			<if test=" visitSite!= null">
+	   			#{visitSite},
+			</if>
+			<if test=" fromT!= null">
+	   			#{fromT},
+			</if>
+			<if test="isDelete!=null">
+				#{isDelete},
+			</if>
+			<if test="areaName !=null">
+				#{areaName},
+			</if>
+			<if test="cityId !=null">
+				#{cityId},
+			</if>
+			<if test="budget !=null">
+				#{budget},
+			</if>
+			<if test="mGoucheType !=null">
+				#{mGoucheType},
+			</if>
+		</trim>
+	   )
+	</insert>
+	<!--根据类型获取报名买车数量-->
+	<select id="getGoucheCoutByType" resultType="java.lang.Integer" parameterType="java.lang.String">
+		SELECT COUNT(1) FROM C_BUYER_REGISTER WHERE M_GOUCHE_TYPE=#{type}
+	</select>
+</mapper>

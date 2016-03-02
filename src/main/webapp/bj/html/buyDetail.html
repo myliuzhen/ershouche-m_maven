@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>买车详情-团车二手车</title>
+<link href="/ershouche/bj/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/bj/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+	<header></header>
+	<content>
+		<div class="buyCar">
+			<div class="buyCarBox"><img id="buyCarBoxImgID" alt="团车二手车"></div>
+			<span id="cTypeName"></span>
+			<div class="ico-arrowUp"><img src="/ershouche/bj/img/ico-arrowUp.png" alt="箭头"></div>
+		</div>
+		<div class="buyCarSafe"><img src="/ershouche/bj/img/buyInfo.png" alt="团车二手车"></div>
+
+		<div class="buyInfo">
+			<div class="T">
+				<h5><span id="typeTitle"></span><em id="typeDesc"></em></h5>
+			</div>
+			<div class="clearfix"></div>
+			<div class="buyInfoText">
+				<ul>
+					<li><em class="icobuy01"></em><span class="red">本周六开团</span></li>
+					<li><em class="icobuy02"></em><span id="applyCountID" class="red"></span></li>
+				</ul>
+				<ul>
+					<li><em class="icobuy03"></em>价格区间：<span id="cPrice" class="blue"></span></li>
+					<li><em class="icobuy04"></em>行驶公里：<span id="cMile" class="blue"></span></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- order S -->
+		<div class="order">
+			<div class="clearfix"></div>
+			<div class="formC">
+		        <div class="inC">
+		            <span>手&nbsp;机&nbsp;号</span>
+		            <input class="inCwrong" name="phoneNo" id="phoneNo" type="number" placeholder="请输入正确的手机号码"
+		                   onfocus="if (this.value =='请输入正确的手机号码'){this.value =''}"
+		                   onblur="if (this.value ==''){this.value='请输入正确的手机号码'}"/>
+		            <em class="wrong" style="display:none;"></em>
+		        </div>
+		        <div class="inC inCsel">
+		            <span>买车预算</span>
+		            <select id="budget">
+		                <option value="0" selected="selected">请选择您的买车预算</option>
+		                <option value="1-3">1-3万</option>
+		                <option value="3-5">3-5万</option>
+		                <option value="5-7">5-7万</option>
+		                <option value="7-10">7-10万</option>
+		                <option value="10-15">10-15万</option>
+		                <option value="15-20">15-20万</option>
+		                <option value="20">20万以上</option>
+		            </select>
+		            <em style="display:"></em>
+		        </div>
+		    </div>
+		</div>
+		<!-- order E -->
+		<div class="sumbitC">
+			<p>我们承诺：您的隐私及信息将被严格保密</p>
+			<button id="submit">预约团购</button>
+		</div>
+		<!-- teamPro S -->
+		<div class="teamPro">
+			<div class="T">
+				<h5>买车保障</h5>
+				<div class="more hide">更多></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="buySpot">
+				<div class="prC prC-right">
+					<samp>亮<br />点</samp>
+					<div class="arrow-right">箭头</div>
+				</div>
+				<ol>
+					<li>永远免费为团友服务，开团当天保证质优价廉!</li>
+					<li>联手北京市车源最充足的正规市场车源，拒绝事故车、翻新车</li>
+					<li>专业的团长、销售为团友提供购车帮助，订车可享好礼</li>
+				</ol>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix hide"></div>
+			<div class="safeC">
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe01.png" alt="团车二手车"></dt>
+					<dd>
+						<p>车源保证</p>
+						<samp>甄选本地优质正规市场车源</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe02.png" alt="团车二手车"></dt>
+					<dd>
+						<p>车况保证</p>
+						<samp>资深检测师甄选好车</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe03.png" alt="团车二手车"></dt>
+					<dd>
+						<p>放心质保</p>
+						<samp>14天可退1年质保终身服务</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe04.png" alt="团车二手车"></dt>
+					<dd>
+						<p>优先提车</p>
+						<samp>享有优先提车权</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe05.png" alt="团车二手车"></dt>
+					<dd>
+						<p>售后维权</p>
+						<samp>质量问题，团车网协助解决</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe06.png" alt="团车二手车"></dt>
+					<dd>
+						<p>订金可退</p>
+						<samp>规定的时间内可退还订金</samp>
+					</dd>
+				</dl>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- teamPro E -->
+		
+		<!-- notice S -->
+		<div class="notice">
+			<div class="T">
+				<h5>团友须知</h5>
+			</div>
+			<div class="clearfix"></div>
+			<ol>
+				<li>团友去团购市场询价切记不要给市场人员留个人信息，更不能交订金，以免市场人员把团友视为非团购用户，产生冲突而导致团友不能享受团购价格及优惠政策。</li>
+				<li>团购现场如果需要试乘试驾的团友，请不要在团购时间申请，原因是现场人太多。</li>
+				<li>团购价格根据团购当天团友数量，销售经理当场放价，团友越多价格越优惠。</li>
+				<li>准备当场订车网友，需提前携带好身份证和订金或银行卡（建议储蓄卡）。</li>
+			</ol>
+		</div>
+		<!-- notice E -->
+
+		<!-- menu S -->
+		<div class="menu bggray">
+			<ul>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/baozhang"><img src="/ershouche/bj/img/ico-menu02.png" alt="保障"></a></div>
+					<P><a href="/ershouche/bj/baozhang">保障</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/maiche"><img src="/ershouche/bj/img/ico-menu03.png" alt="卖车"></a></div>
+					<P><a href="/ershouche/bj/maiche">卖车</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/guzhi"><img src="/ershouche/bj/img/ico-menu04.png" alt="估值"></a></div>
+					<P><a href="/ershouche/bj/guzhi">估值</a></P>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- menu E -->
+	</content>
+	<div class="clearfix"></div>
+	<script type="text/javascript" src="/ershouche/bj/js/footer.js"></script>
+	<script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script>
+	<script type="text/javascript" src="/ershouche/bj/js/buyDetail.js"></script>
+</body>
+</html>

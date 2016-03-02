@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>卖车-团车二手车</title>
+<link href="/ershouche/bj/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/bj/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+	<header>
+	</header>
+	<content>
+		<div class="banner"><img src="/ershouche/bj/img/banner-sell.jpg" alt="团车二手车"></div>
+		<div class="order">
+			<div class="T">
+				<h5>预约卖车服务</h5>
+				<div class="now"><span>[最新] <em id="sed">55秒</em>前 <i id="rqName">刘先生 </i>提交卖车需求</span><samp></samp></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="formC">
+		        <div class="inC">
+		            <span>手&nbsp;机&nbsp;号</span>
+		            <input class="inCwrong" name="phoneNo" id="phoneNo" type="number" placeholder="请输入正确的手机号码"/>
+		                  <!--  onfocus="if (this.value =='请输入正确的手机号码'){this.value =''}" -->
+		                   <!-- onblur="if (this.value ==''){this.value='请输入正确的手机号码'}" --> 
+		            <em  class="wrong"  style="display:none;"></em>
+		        </div>
+		        <div class="inC inCsel">
+		            <span>旧车车型</span>
+		           <!--  <select id="budget">
+		                <option value="0" selected="selected">请请选择旧车车型</option>
+		                <option value="1-3">致开发同学：按照PC首页的下拉列表实现（产品需求）</option>
+		            </select> -->
+		             <input class="checkGuzhi" id="budget" readonly="readonly" placeholder="请选择车型"/>
+		          <!--    <em  class="wrong wrong2"  style="display:;"></em> -->
+		            <em style="display:"></em>
+		        </div>
+		    </div>
+		</div>
+		<div class="sumbitC">
+			<p>我们承诺：您的隐私及信息将被严格保密</p>
+			<button id="maicheSubmit" class="maicheSubmit">预约卖车</button>
+		</div>
+		<!-- teamPro S -->
+		<div class="teamPro">
+			<div class="T">
+				<h5>卖车保障</h5>
+				<div class="more hide">更多></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="buySpot saleSpot">
+				<div class="prC prC-right">
+					<samp>亮<br />点</samp>
+					<div class="arrow-right">箭头</div>
+				</div>
+				<ol>
+					<li>永远免费为团友服务，开团当天保证质优价廉!</li>
+					<li>卖车补贴代申领，国家、企业补贴全额领取</li>
+					<li>免费代办过户，3+3个工作日即可更新指标</li>
+				</ol>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix hide"></div>
+			<div class="safeC">
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe11.png" alt="团车二手车"></dt>
+					<dd>
+						<p>卖出高价</p>
+						<samp>多平台在线竞卖</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe12.png" alt="团车二手车"></dt>
+					<dd>
+						<p>专业检测</p>
+						<samp>198项专业车况检测</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe13.png" alt="团车二手车"></dt>
+					<dd>
+						<p>便捷快速</p>
+						<samp>急速成交打款</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe14.png" alt="团车二手车"></dt>
+					<dd>
+						<p>全程免费</p>
+						<samp>不收取任何办理费用</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe15.png" alt="团车二手车"></dt>
+					<dd>
+						<p>用心服务</p>
+						<samp>全程用心服务</samp>
+					</dd>
+				</dl>
+				<dl>
+					<dt><img src="/ershouche/bj/img/ico-safe16.png" alt="团车二手车"></dt>
+					<dd>
+						<p>安全放心</p>
+						<samp>看得见的透明服务</samp>
+					</dd>
+				</dl>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- teamPro E -->
+
+		<!-- process S -->
+		<div class="process">
+			<div class="T">
+				<h5>卖车流程</h5>
+				<div class="more hide">更多></div>
+			</div>
+			<img src="/ershouche/bj/img/img-teampro2.jpg" alt="团车二手车">
+			<div class="clearfix"></div>
+		</div>
+		<!-- process E -->
+
+		<!-- saleCase S -->
+		<div class="saleCase">
+			<div class="T">
+				<h5>卖车案例</h5>
+				<div class="more" onClick="toCaseList()">更多></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="caseList">
+				<ul id="dealedCars">
+					<li onclick="">
+						<div class="imgBox"><img src="/ershouche/bj/img/img-case01.jpg" alt="团车二手车"></div>
+						<div class="caseText">
+							<h4>斯巴鲁 森林人 2015款</h4>
+							<span class="standard">2015年3月/0.80万公里/北京市/国三</span>
+							<div class="carPrice">
+								<span>￥23.5万</span>
+								<div class="prC"><samp>多卖6400元</samp><div class="arrow-left">箭头</div></div>
+							</div>
+						</div>
+					</li>
+					<li onclick="">
+						<div class="imgBox"><img src="/ershouche/bj/img/img-case01.jpg" alt="团车二手车"></div>
+						<div class="caseText">
+							<h4>斯巴鲁 森林人 2015款</h4>
+							<span class="standard">2015年3月/0.80万公里/北京市/国三</span>
+							<div class="carPrice">
+								<span>￥23.5万</span>
+								<div class="prC prC-left"><samp>多卖6400元</samp><div class="arrow-left">箭头</div></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- saleCase E -->
+		
+		<!-- QC S -->
+		<div class="QC">
+			<div class="T">
+				<h5>问题解答</h5>
+				<div class="more hide">更多></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="qc-buy">
+				<dl>
+					<dt  id="" onclick="">Q1: 在团车网卖车为什么能卖出高价？<em >></em></dt>
+					<dd style="display:none;">团车网提供二手车检测服务，可以出具权威的检车报告，帮您的车做准确估价，同时团车网会把您的车放到竞拍平台去拍卖，5000家商户根据检测报告竞价买车，出价最高的商户才能竞得您的爱车，所以能够卖出高价</dd>
+				</dl>
+				<dl>
+					<dt id="" onclick="">Q2：在团车网卖旧车收费吗？<em>></em></dt>
+					<dd style="display:none;">团车网郑重承诺我们全程免费，我们帮您免费检车，免费竞拍，免费代办过户，不赚取卖车差价</dd>
+				</dl>
+				<dl>
+					<dt id="" onclick="">Q3: 在团车网卖车安全吗？<em>></em></dt>
+					<dd style="display:none;">在团车网卖车，我们会跟您签订正规的服务合同来保障您的权益，您的车竞拍成功后您会一次性拿到全部购车款，我们会协助您申请置换的国家补贴和企业补贴，并且车牌指标更新完成后会第一时间把所有手续送到您手中！</dd>
+				</dl>
+			</div>
+		</div>
+		<!-- QC E -->
+
+		<!-- menu S -->
+		<div class="menu bggray">
+			<ul>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/guzhi"><img src="/ershouche/bj/img/ico-menu04.png" alt="估值"></a></div>
+					<P><a href="/ershouche/bj/guzhi">估值</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/baozhang"><img src="/ershouche/bj/img/ico-menu02.png" alt="保障"></a></div>
+					<P><a href="/ershouche/bj/baozhang">保障</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/dianmian"><img src="/ershouche/bj/img/ico-menu05.png" alt="店面"></a></div>
+					<P><a href="/ershouche/bj/dianmian">店面</a></P>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- menu E -->
+	</content>
+	<div class="clearfix"></div>
+	  <!-- 车型1 -->
+	<div class="carType sCarType1" style="display:none;">
+		<div class="character">
+			<a href="javascript:void(0);">A</a>
+			<a href="javascript:void(0);">B</a>
+			<a href="javascript:void(0);">C</a>
+			<a href="javascript:void(0);">D</a>
+			<a href="javascript:void(0);">E</a>
+			<a href="javascript:void(0);">F</a>
+			<a href="javascript:void(0);">G</a>
+			<a href="javascript:void(0);">H</a>
+			<a href="javascript:void(0);">I</a>
+			<a href="javascript:void(0);">J</a>
+			<a href="javascript:void(0);">K</a>
+			<a href="javascript:void(0);">L</a>
+			<a href="javascript:void(0);">M</a>
+			<a href="javascript:void(0);">N</a>
+			<a href="javascript:void(0);">O</a>
+			<a href="javascript:void(0);">P</a>
+			<a href="javascript:void(0);">Q</a>
+			<a href="javascript:void(0);">R</a>
+			<a href="javascript:void(0);">S</a>
+			<a href="javascript:void(0);">T</a>
+			<a href="javascript:void(0);">U</a>
+			<a href="javascript:void(0);">V</a>
+			<a href="javascript:void(0);">W</a>
+			<a href="javascript:void(0);">X</a>
+			<a href="javascript:void(0);">Y</a>
+			<a href="javascript:void(0);">Z</a>
+		</div>
+		<div class="carTypeT sCarType1">
+			<a class="closepop selectType1" href="javascript:void(0);">关闭</a>
+			<span>选品牌</span>
+		</div>
+		<div id="car1" class="class01"></div>
+	</div>
+
+	<!-- 车型2 -->
+	<div class="carType sCarType2" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectType2" href="javascript:void(0);">返回</a>
+			<span>选车系</span>
+		</div>
+		<div id="car2" class="class02"></div>
+	</div>
+
+	<!-- 车型3 -->
+	<div class="carType sCarType3" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectType3" href="javascript:void(0);">返回</a>
+			<span>选车型</span>
+		</div>
+		<div id="car3" class="class03"></div>
+	</div>	
+	<script type="text/javascript" src="/ershouche/bj/js/footer.js"></script>
+	<script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script>	
+	<!-- <script type="text/javascript" src="/ershouche/resources/js/m.base.js"></script> -->
+	<script src="/ershouche/bj/js/maiche.js"></script>
+</body>
+</html>

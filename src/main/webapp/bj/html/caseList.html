@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>团车二手车</title>
+<link href="/ershouche/bj/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/bj/css/style.css" type="text/css" rel="stylesheet"/>
+<style>
+.fred{color: red !important;}
+</style>
+</head>
+
+<body>
+	<header></header>
+	<content>
+		<div class="searchTC">
+			<div class="searchType">
+				<div class="typeC " id="priceC">
+					<span>按价格找车</span><em></em>
+				</div>
+				<div class="typeC" id="ageC">
+					<span>按车龄找车</span><em></em>
+				</div>
+				<div class="typeC" id="tC">
+					<span>按品牌找车</span><em></em>
+				</div>
+			</div>
+			<div class="mask" style="display:none;"></div>
+			<div class="slidOpen priceC" style="display:none;">
+				<div class="slidOpenC"><!-- 按价格找车 下拉菜单 -->
+					<a href="javascript:;" id="">不限</a>
+					<a href="javascript:;" id="price1">5万以下</a>
+					<a href="javascript:;" id="price2">5-10万</a>
+					<a href="javascript:;" id="price3">10-15万</a>
+					<a href="javascript:;" id="price4">15-25万</a>
+					<a href="javascript:;" id="price5">25万以上</a>
+				</div>
+			</div>
+			<div class="slidOpen ageC" style="display:none;"><!-- 按车龄找车 下拉菜单 -->
+				<div class="slidOpenC">
+					<a href="javascript:;" id="">不限</a>
+					<a href="javascript:;" id="age1">1年以内</a>
+					<a href="javascript:;"  id="age2">1-3年</a>
+					<a href="javascript:;"  id="age3">3-5年</a>
+					<a href="javascript:;" id="age4">5-8年</a>
+					<a href="javascript:;" id="age5" >8年以上</a>
+				</div>
+			</div>
+			<div class="slidOpen tC" style="display:none;"><!-- 按品牌找车 下拉菜单 -->
+				<div class="slidOpenC">
+					<a href="javascript:;" id="buxian">不限</a>
+				</div>
+				<div class="hotBrands">
+					<dl>
+						<dt>热门品牌</dt>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car01.png" alt="大众"></em>
+							<p>大众</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car02.png" alt="宝马"></em>
+							<p>宝马</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car03.png" alt="别克"></em>
+							<p>别克</p>
+						</dd>
+						<dd>
+							<em><img src="../img/ico-car04.png" alt="日产"></em>
+							<p>日产</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car05.png" alt="本田"></em>
+							<p>本田</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/lingmu.jpg" alt="铃木"></em>
+							<p>铃木</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car07.png" alt="奥迪"></em>
+							<p>奥迪</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car08.png" alt="福特"></em>
+							<p>福特</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car09.png" alt="起亚"></em>
+							<p>起亚</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car10.png" alt="现代"></em>
+							<p>现代</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car11.png" alt="丰田"></em>
+							<p>丰田</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car12.png" alt="奔驰"></em>
+							<p>奔驰</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/jili.jpg" alt="吉利"></em>
+							<p>吉利</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/qirui.jpg" alt="奇瑞"></em>
+							<p>奇瑞</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/haima.jpg" alt="海马"></em>
+							<p>海马</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/hafu.jpg" alt="哈弗"></em>
+							<p>哈弗</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/changan.jpg" alt="长安"></em>
+							<p>长安</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/wuling.jpg" alt="五菱"></em>
+							<p>五菱</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/yiqi.jpg" alt="一汽"></em>
+							<p>一汽</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/jianghuai.jpg" alt="江淮"></em>
+							<p>江淮</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/dongnan.jpg" alt="东南"></em>
+							<p>东南</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/hongqi.jpg" alt="红旗"></em>
+							<p>红旗</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/rongwei.jpg" alt="荣威"></em>
+							<p>荣威</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/beiqi.jpg" alt="北汽"></em>
+							<p>北汽</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/JEEP.jpg" alt="JEEP"></em>
+							<p>JEEP</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/biaozhi.jpg " alt="标致"></em>
+							<p>标致</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/xuetielong.jpg" alt="雪铁龙"></em>
+							<p>雪铁龙</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/sikeda.jpg" alt="斯柯达"></em>
+							<p>斯柯达</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/wow.jpg" alt="沃尔沃"></em>
+							<p>沃尔沃</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/xuefulan.jpg" alt="雪佛兰"></em>
+							<p>雪佛兰</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/sibalu.jpg" alt="斯巴鲁"></em>
+							<p>斯巴鲁</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/feiyate.jpg" alt="菲亚特"></em>
+							<p>菲亚特</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/ico-car06.png" alt="马自达"></em>
+							<p>马自达</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/fkss.jpg" alt="雷克萨斯"></em>
+							<p>雷克萨斯</p>
+						</dd> 
+						<dd>
+							<em><img src="/ershouche/bj/img/cacy.jpg" alt="长安商用"></em>
+							<p>长安商用</p>
+						</dd>
+						<dd>
+							<em><img src="/ershouche/bj/img/biyadi.jpg" alt="比亚迪"></em>
+							<p>比亚迪</p>
+						</dd>
+					</dl>
+				</div>
+				 <div class="clickmore"><a href="javascript:;" id="brandsMore" onClick="brandsMoreList()">点击查看更多</a></div> 
+			</div>
+		</div>
+		
+		<div class="sort">
+			<div class="sortC Wsort">
+				<span>最新成交</span>
+				<div class="resort hide">
+					<!-- <div class="arrow-top" id="newAsc">箭头</div> --> <!-- 选中：arrowTopact -->
+					<!-- <div class="arrow-bottom" id="newDesc">箭头</div> --><!-- 选中：arrowBottomact -->
+				</div>
+			</div>
+			<div class="sortC">
+				<span>车龄</span>
+				<div class="resort">
+					<div class="arrow-top" id="ageAsc">箭头</div> <!-- 选中：arrowTopact -->
+					<div class="arrow-bottom arrowBottomact" id="ageDesc">箭头</div><!-- 选中：arrowBottomact -->
+				</div>
+			</div>
+			<div class="sortC">
+				<span>价格</span>
+				<div class="resort">
+					<div class="arrow-top" id="priceAsc">箭头</div> <!-- 选中：arrowTopact -->
+					<div class="arrow-bottom" id="priceDesc">箭头</div><!-- 选中：arrowBottomact -->
+				</div>
+			</div>
+			<div class="sortC">
+				<span>里程</span>
+				<div class="resort">
+					<div class="arrow-top" id="mileageAsc">箭头</div> <!-- 选中：arrowTopact -->
+					<div class="arrow-bottom" id="mileageDesc">箭头</div><!-- 选中：arrowBottomact -->
+				</div>
+			</div>
+		</div>
+		<!-- saleCase S -->
+		<div class="saleCase searchNone">
+			<div class="caseList" flag="0">
+				<ul >
+				<!-- 	<li onclick="">
+						<div class="imgBox"><img src="/ershouche/bj/img/img-case01.jpg" alt="团车二手车"></div>
+						<div class="caseText">
+							<h4>斯巴鲁 森林人 2015款</h4>
+							<span class="standard">2015年3月/0.80万公里/北京市/国三</span>
+							<div class="carPrice">
+								<span>￥23.5万</span>
+								<div class="prC"><samp>多卖6400元</samp><div class="arrow-left">箭头</div></div>
+							</div>
+						</div>
+					</li>
+					<li onclick="">
+						<div class="imgBox"><img src="/ershouche/bj/img/img-case01.jpg" alt="团车二手车"></div>
+						<div class="caseText">
+							<h4>斯巴鲁 森林人 2015款</h4>
+							<span class="standard">2015年3月/0.80万公里/北京市/国三</span>
+							<div class="carPrice">
+								<span>￥23.5万</span>
+								<div class="prC prC-left"><samp>多卖6400元</samp><div class="arrow-left">箭头</div></div>
+							</div>
+						</div>
+					</li> -->
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- <div class="clickmore"><a href="#">点击查看更多</a></div> -->
+		</div>
+		<!-- saleCase E -->
+	</content>
+	<div class="clearfix"></div>
+	  <!-- 车型1 -->
+	<div class="carType sCarType1" style="display:none;">
+		<div class="character">
+			<!-- <a href="javascript:void(0);">A</a>
+			<a href="javascript:void(0);">B</a>
+			<a href="javascript:void(0);">C</a>
+			<a href="javascript:void(0);">D</a>
+			<a href="javascript:void(0);">E</a>
+			<a href="javascript:void(0);">F</a>
+			<a href="javascript:void(0);">G</a>
+			<a href="javascript:void(0);">H</a>
+			<a href="javascript:void(0);">I</a>
+			<a href="javascript:void(0);">J</a>
+			<a href="javascript:void(0);">K</a>
+			<a href="javascript:void(0);">L</a>
+			<a href="javascript:void(0);">M</a>
+			<a href="javascript:void(0);">N</a>
+			<a href="javascript:void(0);">O</a>
+			<a href="javascript:void(0);">P</a>
+			<a href="javascript:void(0);">Q</a>
+			<a href="javascript:void(0);">R</a>
+			<a href="javascript:void(0);">S</a>
+			<a href="javascript:void(0);">T</a>
+			<a href="javascript:void(0);">U</a>
+			<a href="javascript:void(0);">V</a>
+			<a href="javascript:void(0);">W</a>
+			<a href="javascript:void(0);">X</a>
+			<a href="javascript:void(0);">Y</a>
+			<a href="javascript:void(0);">Z</a>-->
+		</div> 
+		<div class="carTypeT sCarType1">
+			<a class="closepop selectType1" href="javascript:void(0);">关闭</a>
+			<span> 选品牌 </span>
+		</div>
+		
+		<div id="car1" class="class01">
+		
+		</div>
+	</div>
+	<div id="showEmptyID" style='display:none;text-align:center;color:#999;position: relative;width: 100%;height: 50%;background: rgba(255,255,255,1);'>
+		<p style="height: 35%;"></p>
+		<p>抱歉！</p>
+		<p>暂时没有找到当前条件的车<p><p>建议您重新修改筛选条件<p>
+	</div>
+	<script type="text/javascript" src="/ershouche/bj/js/footer.js"></script>
+	<script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script>	
+	<script type="text/javascript" src="/ershouche/resources/js/m.base.js"></script>
+	<script type="text/javascript" src="/ershouche/bj/js/caseList.js"></script>
+	<script type="text/javascript" src="/ershouche/resources/js/min/iscroll.min.js"></script>
+</body>
+</html>

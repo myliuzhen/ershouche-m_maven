@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>案例详情-团车二手车</title>
+<link href="/ershouche/bj/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/bj/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+	<header></header>
+	<content>
+		<div class="adcaseC">
+			<div class="ad-case">
+				<div class="caseBox">
+					<ul id="slideImg">
+					<!-- 	<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li>
+						<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li>
+						<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li>
+						<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li>
+						<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li>
+						<li><img src="/ershouche/bj/img/ad-case01.jpg" alt="团车二手车"></li> -->
+					</ul>
+				</div>
+				<div class="caseSlide" id="slideImgF">
+					<!--<a href="#"></a>
+					<a class="act" href="#"></a>
+					 <a href="#"></a>
+					<a href="#"></a>
+					<a href="#"></a>
+					<a href="#"></a> -->
+				</div>
+			</div>
+			<div class="adcaseText">
+				<h4><!-- 宝马 X5(进口)  xDrive35i 3.0T 手自一体 豪华型 --></h4>
+				<p>
+					<span><!-- 2012年11月上牌 --></span>
+					<span><!-- 行驶5.10万公里 --></span>
+					<span><!-- 国三排放标准 --></span>
+					<span><!-- 北京牌照 --></span>
+				</p>
+				<div class="adCarPrice">
+					<div class="carPrice">
+						<span><!-- ￥23.5万 --></span>
+						<div class="prC"><samp><!-- 多卖6400元 --></samp><div class="arrow-left">箭头</div></div>
+					</div>
+					<em id="isAccident" style="display: none;"><!-- 无事故 --></em>
+				</div>
+			</div>
+		</div>
+		<div class="sumbitC">
+			<p class="hide">我们承诺：您的隐私及信息将被严格保密</p>
+			<button id="submit" onClick="tomaiche()">预约卖车</button>
+		</div>
+
+		<!-- process S -->
+		<div class="process">
+			<div class="T">
+				<h5>卖车流程</h5>
+				<div class="more hide">更多></div>
+			</div>
+			<img src="/ershouche/bj/img/img-teampro2.jpg" alt="团车二手车">
+			<div class="clearfix"></div>
+		</div>
+		<!-- process E -->
+
+		<!-- conflight S -->
+		<div class="conflight">
+			<div class="T">
+				<h5>配置亮点</h5>
+			</div>
+			<div class="clearfix"></div>
+			<div class="highlight">
+				<ul>
+					<!-- <li>
+						<em class="highlight01"></em><span>导航</span>
+					</li>
+					<li>
+						<em class="highlight02"></em><span>智能钥匙</span>
+					</li>
+					<li>
+						<em class="highlight03"></em><span>定速巡航</span>
+					</li>
+					<li>
+						<em class="highlight04"></em><span>有天窗</span>
+					</li>
+					<li>
+						<em class="highlight05"></em><span>倒车影像</span>
+					</li>
+					<li>
+						<em class="highlight06"></em><span>安全气囊</span>
+					</li>
+					<li>
+						<em class="highlight07"></em><span>多功能方向盘</span>
+					</li>
+					<li>
+						<em class="highlight08"></em><span>倒车雷达</span>
+					</li>
+					<li>
+						<em class="highlight09"></em><span>ABS</span>
+					</li> -->
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<!-- conflight E -->
+
+		<!-- report S -->
+		<div class="report">
+			<div class="T">
+				<h5>检测报告</h5>
+			</div>
+			<div class="reportC">
+				<dl class="score">
+					<dt>
+						<span class="defaultScore">车况评分</span>
+						<span><strong id="score"><!-- 90 --></strong><em>分</em></span>
+					</dt>
+					<dd>
+						<span>质检对象：</span>
+						<p id="carInfo"><!-- 宝马 X5(进口) X5 xDrive35 3.0T手自一体 豪华型 --></p>
+					</dd>
+					<dd>
+						<span>检测项目：</span>
+						<p>198项专项检测</p>
+					</dd>
+					<dd>
+						<span>评分标准：</span>
+						<p>百分制</p>
+					</dd>
+				</dl>
+				<div class="reportInfo">
+					<ul>
+						<li>
+							<span>手续及违章状况</span>
+							<p id="shouxu"></p>
+						</li>
+						<li>
+							<span>机械和传动状况</span>
+							<p id="jixie"></p>
+						</li>
+						<li>
+							<span>车身状况</span>
+							<p id="cheshen"></p>
+						</li>
+						<li>
+							<span>覆盖面状况</span>
+							<p id="fugai"></p>
+						</li>
+						<li>
+							<span>内饰状况</span>
+							<p id="neishi"></p>
+						</li>
+					</ul>
+				</div>
+				<p class="state">声明：1.本检测报告的检测标准由团车二手车制定，团车二手车   为卖车用户提供免费检测服务;2.本检测报告中“无事故”车辆为“无泡水”“无过火”“车辆骨架”无损伤车型.</p>
+			</div>
+			<div class="clearfix"></div>
+			<div class="sawtoothbg"></div>
+		</div>
+		<!-- report E -->
+
+		<!-- menu S -->
+		<div class="menu bggray">
+			<ul>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/guzhi"><img src="/ershouche/bj/img/ico-menu04.png" alt="团车二手车"></a></div>
+					<P><a href="/ershouche/bj/guzhi">估值</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/maiche"><img src="/ershouche/bj/img/ico-menu03.png" alt="卖车"></a></div>
+					<P><a href="/ershouche/bj/maiche">卖车</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/bj/dianmian"><img src="/ershouche/bj/img/ico-menu05.png" alt="团车二手车"></a></div>
+					<P><a href="/ershouche/bj/dianmian">店面</a></P>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- menu E -->
+	</content>
+	<div class="clearfix"></div>
+		
+<script type="text/javascript" src="/ershouche/bj/js/footer.js"></script>
+<script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script>
+<script type="text/javascript" src="/ershouche/resources/js/m.base.js"></script>
+<script type="text/javascript" src="/ershouche/bj/js/caseDetail.js"></script>
+</body>
+</html>

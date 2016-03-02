@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>微信活动-团车二手车</title>
+<link href="/ershouche/weixin/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/weixin/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+	<div id="bmask" class="mask hide"></div>
+	<div class="popC pop01 hide">
+		<div class="PClose">×</div>
+		<p>更多活动请添加团车二手车微信公众号，期待您的参与!</p>
+		<button class="wx-attention">关注微信号</button>
+	</div>
+	<div class="popC pop02 hide">
+		<div class="PClose">×</div>
+		<p>更多活动请添加团车二手车微信公众号，期待您的参与!</p>
+		<button class="wx-attention">关注微信号</button>
+	</div>
+	<div class="popC pop03 hide">
+		<div class="PClose">×</div>
+		<button>点击查收</button>
+	</div>
+	<div class="popC pop04 hide">
+		<div class="PClose">×</div>
+	</div>
+
+	<content>
+		<div class="banner"><img src="/ershouche/weixin/img/banner.jpg" alt="团车二手车"></div>
+		<div class="rule">
+			<a id="rule" href="javascript:void(0);">查看活动规则</a>
+		</div>
+
+		<!-- info S -->
+		<div class="info">
+			<div class="bginT">填写您的买车或卖车信息，疯抢团车新春大礼包</div>
+			<div class="formC">
+				<div class="inC inCsel">
+		            <span class="ico-info02"></span>
+		            <input id="citySelect" readonly="readonly" placeholder="请选择城市" />
+		            <em id="cityWrong" class="wrong" style="display:none;"></em>
+		        </div>
+		        <div class="inC inCsel">
+		            <span class="ico-info01"></span>
+		            <input id="carModelSelect" readonly="readonly" placeholder="请选择车型"/>
+		            <em id="carModelWrong" class="wrong" style="display:none;"></em>
+		        </div>
+		        <div class="getCode">
+			        <div class="inC">
+			            <span class="ico-info03"></span>
+			            <input name="phoneNo" id="phoneNo" type="tel" maxlength="11" placeholder="请输入您的手机号" onfocus="if (this.value =='请输入您的手机号'){this.value =''}" onblur="if (this.value ==''){this.value='请输入您的手机号'}"/>
+			            <em id="phoneWrong" class="wrong" style="display:none;"></em>
+			        </div>
+			        <button id="verifyCode">获取验证码</button>
+		        </div>
+		        <div class="inC">
+		            <input class="codeC" name="code" id="code" type="tel" maxlength="6" placeholder="请输入您收到的验证码" onfocus="if (this.value =='请输入您收到的验证码'){this.value =''}" onblur="if (this.value ==''){this.value='请输入您收到的验证码'}"/>
+		            <em id="codeWrong" class="wrong" style="display:none;"></em>
+		        </div>
+		        <dl id="carSelect">
+		        	<dt>您的购车方式:</dt>
+		        	<dd class="check" data-check="1"><p>置换</p><em>√</em></dd>
+		        	<!-- <dd data-check="2"><p>摇号</p><em>√</em></dd> -->
+		        	<dd data-check="3"><p>选购新车</p><em>√</em></dd>
+		        </dl>
+		        <div class="sumbitC"><button>点我抢红包</button></div>
+		        <p class="promise">我们承诺您的隐私信息我们将严格保密</p>
+		    </div>
+		    <div class="clear"></div>
+		</div>
+		<!-- info E -->
+
+		<div class="go-value">
+			<p>卖旧车 心里有底 才卖不亏 </p>
+			<a href="/ershouche/bj/guzhi?v=1401">估个价 >></a>
+		</div>
+
+		<!-- ad S -->
+		<div class="ad">
+			<div class="ad-box">
+				<ul>
+					<li><a href="http://m.tuanche.com/wxapply/?sid=91"><img src="/ershouche/weixin/img/ad01.jpg" alt="团车二手车"></a></li>
+					<li><a href="/ershouche/bj/maiche?v=1401"><img src="/ershouche/weixin/img/ad02.jpg" alt="团车二手车"></a></li>
+					<li><a href="http://m.tuanche.com/wxapply/?sid=91"><img src="/ershouche/weixin/img/ad01.jpg" alt="团车二手车"></a></li>
+					<li><a href="/ershouche/bj/maiche?v=1401"><img src="/ershouche/weixin/img/ad02.jpg" alt="团车二手车"></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- ad E -->
+
+		<!-- hot S -->
+		<div class="hot">
+			<div class="T">
+				<h5>热门新车团购</h5>
+				<div id="toNewCar" class="more">更多>></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="hotList">
+				<ul>
+					<li id="newCarAD">
+						<div class="imgBox"><img src="/ershouche/weixin/img/aodi.jpg" alt="团车二手车"></div>
+						<p>奥迪A4L团购会</p>
+						<span>本期已有<em>88</em>人报名</span>
+						<button>预约团购</button>
+					</li>
+					<li id="newCarDZ" class="end">
+						<div class="imgBox"><img src="/ershouche/weixin/img/hafu.jpg" alt="团车二手车"></div>
+						<p>哈弗H6团购会</p>
+						<span>本期已有<em>120</em>人报名</span>
+						<button>预约团购</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- hot E -->
+
+		<!-- saleCase S -->
+		<div class="saleCase">
+			<div class="T">
+				<h5>卖车案例</h5>
+				<div id="showMore" class="more" onClick="toCaseList();">更多>></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="caseList">
+			</div>
+		</div>
+		<!-- saleCase E -->
+	</content>
+	
+	<!-- <div class="bottomC">
+		<a href="http://m.tuanche.com/wxapply/?sid=91" class="btnB-buy">预约买车</a>
+  		<a href="/ershouche/bj/maiche" class="btnB-sale">预约卖车</a>
+  		<div class="btclose"><em>×</em></div>
+	</div> -->
+	
+	<!-- carType class01 S -->
+	<div class="carType sCarType1 hide">
+		<div class="character">
+			<a href="javascript:void(0);">A</a>
+			<a href="javascript:void(0);">B</a>
+			<a href="javascript:void(0);">C</a>
+			<a href="javascript:void(0);">D</a>
+			<a href="javascript:void(0);">E</a>
+			<a href="javascript:void(0);">F</a>
+			<a href="javascript:void(0);">G</a>
+			<a href="javascript:void(0);">H</a>
+			<a href="javascript:void(0);">I</a>
+			<a href="javascript:void(0);">J</a>
+			<a href="javascript:void(0);">K</a>
+			<a href="javascript:void(0);">L</a>
+			<a href="javascript:void(0);">M</a>
+			<a href="javascript:void(0);">N</a>
+			<a href="javascript:void(0);">O</a>
+			<a href="javascript:void(0);">P</a>
+			<a href="javascript:void(0);">Q</a>
+			<a href="javascript:void(0);">R</a>
+			<a href="javascript:void(0);">S</a>
+			<a href="javascript:void(0);">T</a>
+			<a href="javascript:void(0);">U</a>
+			<a href="javascript:void(0);">V</a>
+			<a href="javascript:void(0);">W</a>
+			<a href="javascript:void(0);">X</a>
+			<a href="javascript:void(0);">Y</a>
+			<a href="javascript:void(0);">Z</a>
+		</div>
+		<div class="carTypeT">
+			<a class="closepop selectType1" href="javascript:void(0);">关闭</a>
+			<span>选品牌</span>
+		</div>
+		<div id="car1" class="class01">
+		</div>
+	</div>
+	<!-- carType class01 E -->
+
+	<!-- carType class02 S -->
+	<div class="carType sCarType2 hide">
+		<div class="carTypeT">
+			<a class="closepop selectType2" href="javascript:void(0);">返回</a>
+			<span>选车系</span>
+		</div>
+		<div id="car2" class="class01">
+		</div>
+	</div>
+	<!-- carType class02 E -->
+	
+	<!-- 选城市 -->
+	<div class="carType sCity1 hide">
+		<div class="character">
+			<a href="javascript:void(0);">A</a>
+			<a href="javascript:void(0);">B</a>
+			<a href="javascript:void(0);">C</a>
+			<a href="javascript:void(0);">D</a>
+			<a href="javascript:void(0);">E</a>
+			<a href="javascript:void(0);">F</a>
+			<a href="javascript:void(0);">G</a>
+			<a href="javascript:void(0);">H</a>
+			<a href="javascript:void(0);">I</a>
+			<a href="javascript:void(0);">J</a>
+			<a href="javascript:void(0);">K</a>
+			<a href="javascript:void(0);">L</a>
+			<a href="javascript:void(0);">M</a>
+			<a href="javascript:void(0);">N</a>
+			<a href="javascript:void(0);">O</a>
+			<a href="javascript:void(0);">P</a>
+			<a href="javascript:void(0);">Q</a>
+			<a href="javascript:void(0);">R</a>
+			<a href="javascript:void(0);">S</a>
+			<a href="javascript:void(0);">T</a>
+			<a href="javascript:void(0);">U</a>
+			<a href="javascript:void(0);">V</a>
+			<a href="javascript:void(0);">W</a>
+			<a href="javascript:void(0);">X</a>
+			<a href="javascript:void(0);">Y</a>
+			<a href="javascript:void(0);">Z</a>
+		</div>
+		<div class="carTypeT">
+			<a class="closepop selectCity1" href="javascript:void(0);">关闭</a>
+			<span>请选择</span>
+		</div>
+		<div id="city1" class="class01"></div>
+	</div>
+	
+<!-- <script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script> -->
+<script src='/ershouche/resources/js/jquery.min.js'></script>
+<script src='/ershouche/resources/js/min/m.commUtil.min.js'></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script type="text/javascript" src="/ershouche/weixin/js/wxActivity.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.standard.CarSelledMapper">
+	<resultMap id="carSelled" type="com.tcw.car.entity.CarSelled" >
+		<result property="carCode" column="CAR_CODE" />
+		<result property="carFirstImg" column="CAR_FIRST_IMG" />
+		<result property="carInfo" column="CAR_INFO" />
+		<result property="rank" column="RANK" />
+		<result property="regDate" column="REG_DATE" />
+		<result property="miles" column="MILEAGE" />
+		<result property="dealPrice" column="PURCHASER_CLOSING_COST" />
+		<result property="emissionGb" column="EMISSION_GB" />
+		<result property="registry" column="LOCATION" />
+		<result property="dealTime" column="ON_DATE" />
+	</resultMap>
+	
+	
+	<resultMap id="carInfoDto" type="com.tcw.car.dto.CarInfoDto" >
+		<id property="id" column="CAR_ID" />
+		<result property="carCode" column="CAR_CODE" />
+		<result property="carInfo" column="CAR_INFO" />
+		<result property="manufacturer" column="MANUFACTURER" />
+		<result property="model" column="MODEL" />
+		<result property="license" column="LICENSE" />
+		<result property="seriesName" column="SERIES_NAME" />
+		<result property="color" column="COLOR" />
+		<result property="rank" column="RANK" />
+		<result property="regDate" column="REG_DATE" />
+		<result property="mileage" column="MILEAGE" />
+		<result property="carFirstImg" column="CAR_FIRST_IMG" />
+		<result property="factoryTime" column="FACTORY_TIME"/>
+		<result property="purchaserClosingCost" column="PURCHASER_CLOSING_COST" />
+		<result property="country" column="COUNTRY"/>
+		<result property="dealTime" column="ON_DATE"/>
+		<result property="carLocation" column="ON_DATE"/>
+	</resultMap>
+	
+	<!-- 根据carId获取车轮下信息 -->
+	<select id="getCarInfoByCid" resultMap="carInfoDto" parameterType="String">
+		<include refid="SelectDealDataSql" />
+	       AND T.CAR_BASE_ID = #{cid}
+	</select>
+	
+	<!-- 查询成交数据通用SQL -->
+   <sql id="SelectDealDataSql" >
+	SELECT     T.CAR_FIRST_IMG AS CAR_FIRST_IMG,
+	    	   T.FACTORY_TIME,
+	    	   T.LOCATION,
+	    	   T1.ON_DATE, 
+	    	   T1.SELLER_CLOSING_COST AS PURCHASER_CLOSING_COST,
+		       T1.CAR_CODE,
+		       IFNULL(T2.REG_DATE, '') AS REG_DATE,
+		       IFNULL(T2.CAR_INFO, ' ') AS CAR_INFO,
+		       T2.EMISSION_GB,
+		       T3.MILEAGE,
+		       T3.CAR_LEVEL AS RANK
+		  FROM TRA_CAR_EXPAND T
+		  INNER JOIN TRA_MAIN_ORDER T1 ON T1.CAR_CODE = T.CAR_CODE 
+										  AND T1.TIMELINESS = 0
+		                                  AND T1.DELETE_TAG = 0 
+		  INNER JOIN TRA_CAR_BASE T2 ON T2.ID = T.CAR_BASE_ID
+		  INNER JOIN VDS_TESTREPORT_BASE T3 ON T3.CAR_CODE = T.CAR_CODE
+		                                  AND T3.TIMELINESS = 0
+		                                  AND T3.DELETE_TAG = 0
+										  AND T3.IS_NORMAL_END = 1
+		  INNER JOIN SYS_STORES S ON T1.STORES_ID = S.ID  AND S.TIMELINESS  = '0'
+		  INNER JOIN opr_confirm_info OPR ON OPR.CAR_CODE = T1.CAR_CODE 
+		    AND OPR.DELETE_TAG =  '0' AND OPR.TIMELINESS = '0'
+		  INNER JOIN cus_seller_info t4
+			ON t4.CAR_CODE = t.CAR_CODE 
+			AND t4.DEPARTURE_FLAG IS NULL 
+			AND (t4.is_return <![CDATA[<>]]>'1' OR  t4.is_return IS NULL)    
+		 WHERE 
+		    OPR.AGREEMENT_CODE NOT LIKE '%WT%' 
+		   AND T1.CHANNEL_ON IN ('0','1', '2', '3','4')
+		   AND T.DELETE_TAG = '0'
+		   AND T.TIMELINESS = '0'
+		   AND T.CAR_FIRST_IMG IS NOT NULL   
+  </sql>
+	<!-- 通过厂商code或车系code或车辆国家 获取已成交车辆信息列表 -->
+	<select id="getDealCarInfo" resultMap="carSelled" >
+		<!-- 更换数据库做过修改  -->
+	    <include refid="SelectDealDataSql" />
+	  <!--   年龄条件 -->
+	    <if test="ageop!=null">
+	        <if test="ageop=='age1'">
+	            AND NOW() - INTERVAL 365 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+	        </if>
+	        <if test="ageop=='age2'">
+	            AND NOW() - INTERVAL 365*1 DAY &gt; DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*3 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+	        </if>
+	        <if test="ageop=='age3'">
+	             AND NOW() - INTERVAL 365*3 DAY &gt; DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*5 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+	        </if>
+	        <if test="ageop=='age4'">
+	             AND NOW() - INTERVAL 365*5 DAY &gt; DATE_FORMAT(reg_date,'%Y-%m-%d') and NOW() - INTERVAL 365*8 DAY &lt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+	        </if>
+	        <if test="ageop=='age5'">
+	              AND NOW() - INTERVAL 365*8 DAY &gt;= DATE_FORMAT(reg_date,'%Y-%m-%d')
+	        </if>
+	    </if>
+	    
+	   <!--  价格条件 -->
+	    <if test="priceop!=null">
+	        <if test="priceop=='price1'">
+	            	AND T1.SELLER_CLOSING_COST <![CDATA[<=]]>50000
+	        </if>
+	         <if test="priceop=='price2'">
+	             AND T1.SELLER_CLOSING_COST <![CDATA[>]]>50000 AND 100000 <![CDATA[>=]]>T1.SELLER_CLOSING_COST
+	        </if>
+	         <if test="priceop=='price3'">
+	              AND T1.SELLER_CLOSING_COST <![CDATA[>]]>100000 AND 150000<![CDATA[>=]]> T1.SELLER_CLOSING_COST
+	        </if>
+	         <if test="priceop=='price4'">
+	             AND T1.SELLER_CLOSING_COST <![CDATA[>]]>150000 AND 250000<![CDATA[>=]]>T1.SELLER_CLOSING_COST
+	        </if>
+	         <if test="priceop=='price5'">
+	             AND T1.SELLER_CLOSING_COST <![CDATA[>]]>250000
+	        </if>
+	    </if>
+	    
+	    AND T1.SELLER_CLOSING_COST > 10000 
+	    
+	    <!-- 车型条件 -->
+	    <if test="modelop!=null">
+	        and (T2.MANUFACTURER like concat('%',#{modelop},'%') or  T2.SERIES_NAME like concat('%',#{modelop},'%') or T2.model like concat('%',#{modelop},'%') )
+	    </if>
+	    
+	    <!-- 过滤不正确的数据 -->
+	     and T.CAR_CODE NOT IN('C20150620115329','C20150613114135') 
+	    
+	    <!--  升降序 -->
+	    <if test="orderByop!=null">
+	        <if test="orderByop=='ageAsc'">
+	            ORDER BY REG_DATE asc
+	        </if>
+	         <if test="orderByop=='ageDesc'">
+	             ORDER BY REG_DATE desc
+	        </if>
+	         <if test="orderByop=='priceAsc'">
+	             ORDER BY SELLER_CLOSING_COST asc
+	        </if>
+	         <if test="orderByop=='priceDesc'">
+	            ORDER BY SELLER_CLOSING_COST desc
+	        </if>
+	         <if test="orderByop=='mileageAsc'">
+	            ORDER BY MILEAGE asc
+	        </if>
+	         <if test="orderByop=='mileageDesc'">
+	            ORDER BY MILEAGE desc
+	        </if> 
+	    </if>
+	     <if test="orderByop==null">
+	          ORDER BY T1.ON_DATE DESC
+	     </if>
+        LIMIT #{startRow},#{rowNum}
+	</select>
+	
+	
+	<select id="getDealCarInfoCount" resultType="int">
+		<!-- 更换数据库做过修改 -->
+		SELECT COUNT(*) FROM (
+			<include refid="SelectDealDataSql" />
+	     ) A where A.CAR_CODE NOT IN('C20150620115329','C20150613114135') 
+	</select>
+	
+	<!-- 通过厂商名称获或车系名称 取已成交车辆信息列表
+	<select id="getDealCarInfoByName" resultMap="carInfoDto" parameterType="com.tcw.usedcar.dto.CarInfoDto" >
+	更换数据库做过修改
+				   <include refid="SelectDealDataSql" />
+		           <if test="seriesName != null and seriesName != ''">
+		           		AND T2.SERIES_NAME = #{seriesName}
+		           </if>
+		           <if test="manufacturer != null and manufacturer != ''">
+		           		AND T2.MANUFACTURER = #{manufacturer}
+		           </if>
+		          ORDER BY T1.ON_DATE DESC
+	     <if test="rowNum != null or rowNum != 0">
+	     	LIMIT 0,#{rowNum}
+	     </if>
+	</select> -->
+	
+	
+</mapper>

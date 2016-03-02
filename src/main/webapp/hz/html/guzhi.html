@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- Document for m.tuanche.com  byzss -->
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1, user-scalable=no"/>
+<meta property="wb:webmaster" content="02bdb133a3f3de35" />
+<title>估值-团车二手车</title>
+<link href="/ershouche/hz/css/global.css" type="text/css" rel="stylesheet"/>
+<link href="/ershouche/hz/css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+	<header>
+	</header>
+	<content>
+		<!-- order S -->
+		<div class="order">
+			<div class="T TLtext">
+				<h5>旧车估值<em>心里有底，才卖不亏</em></h5>
+				<div class="TRtext"><span>仅需1分钟</span><em></em></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="formC">
+		        <div class="inC inCsel">
+		            <span>选择车型</span>
+		            <input id="carModelSelect" readonly="readonly" placeholder="请选择车型"/>
+		            <em></em>
+		        </div>
+		        <div class="inC inCsel">
+		            <span>首次上牌</span>
+		            <input id="carYear" readonly="readonly" placeholder="请选择年份"/>
+		            <em></em>
+		        </div>
+		        <div class="inC inCsel">
+		            <span>选择城市</span>
+		            <input id="citySelect" readonly="readonly" placeholder="请选择城市" />
+		            <em></em>
+		        </div>
+		        <div class="inC">
+		            <span>行驶里程</span>
+		            <input class="inCwrong checkGuzhi" maxlength=5 id="mileageInput" type="number" placeholder="0万公里"
+		                   onfocus="if (this.value =='请输入行驶里程'){this.value =''}"
+		                   onblur="if (this.value ==''){this.value='请输入行驶里程'}"/>
+		            <em style="display:none"></em>
+		        </div>
+		        <div class="inC">
+		            <span>手&nbsp;机&nbsp;号</span>
+		            <input maxlength="11" class="checkGuzhi" class="inCwrong" id="mobile" type="number" placeholder="请输入您的手机号"
+		                   onfocus="if (this.value =='请输入您的手机号'){this.value =''}"
+		                   onblur="if (this.value ==''){this.value='请输入您的手机号'}"/>
+		            <em style="display:none"></em>
+		        </div>
+		    </div>
+		</div>
+		<!-- order E -->
+		<div class="sumbitC">
+			<p>我们承诺：您的隐私及信息将被严格保密</p>
+			<button id="pingguSubmit" onclick="submitGuzhi();">开始评估</button>
+			<div class="incheck"><em id="switchEM" class="inchecked"></em><span>同意</span>并委托团车二手车帮我预约车辆检测</div>
+		</div>
+
+		<!-- menu S -->
+		<div class="menu bggray">
+			<ul>
+				<li>
+					<div class="ico"><a href="/ershouche/hz/gouche"><img src="/ershouche/hz/img/ico-menu01.png" alt="买车"></a></div>
+					<P><a href="/ershouche/hz/gouche">买车</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/hz/maiche"><img src="/ershouche/hz/img/ico-menu03.png" alt="卖车"></a></div>
+					<P><a href="/ershouche/hz/maiche">卖车</a></P>
+				</li>
+				<li>
+					<div class="ico"><a href="/ershouche/hz/baozhang"><img src="/ershouche/hz/img/ico-menu02.png" alt="保障"></a></div>
+					<P><a href="/ershouche/hz/baozhang">保障</a></P>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- menu E -->
+	</content>
+	<div class="clearfix"></div>
+	
+	<!-- 车型1 -->
+	<div id="carModelType1ID" class="carType sCarType1" style="display:none;">
+		<div class="character">
+			<a href="javascript:void(0);">A</a>
+			<a href="javascript:void(0);">B</a>
+			<a href="javascript:void(0);">C</a>
+			<a href="javascript:void(0);">D</a>
+			<a href="javascript:void(0);">E</a>
+			<a href="javascript:void(0);">F</a>
+			<a href="javascript:void(0);">G</a>
+			<a href="javascript:void(0);">H</a>
+			<a href="javascript:void(0);">I</a>
+			<a href="javascript:void(0);">J</a>
+			<a href="javascript:void(0);">K</a>
+			<a href="javascript:void(0);">L</a>
+			<a href="javascript:void(0);">M</a>
+			<a href="javascript:void(0);">N</a>
+			<a href="javascript:void(0);">O</a>
+			<a href="javascript:void(0);">P</a>
+			<a href="javascript:void(0);">Q</a>
+			<a href="javascript:void(0);">R</a>
+			<a href="javascript:void(0);">S</a>
+			<a href="javascript:void(0);">T</a>
+			<a href="javascript:void(0);">U</a>
+			<a href="javascript:void(0);">V</a>
+			<a href="javascript:void(0);">W</a>
+			<a href="javascript:void(0);">X</a>
+			<a href="javascript:void(0);">Y</a>
+			<a href="javascript:void(0);">Z</a>
+		</div>
+		<div class="carTypeT sCarType1">
+			<a class="closepop selectType1" href="javascript:void(0);">关闭</a>
+			<span>选品牌</span>
+		</div>
+		<div id="car1" class="class01"></div>
+	</div>
+	
+	<!-- 车型2 -->
+	<div class="carType sCarType2" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectType2" href="javascript:void(0);">返回</a>
+			<span>选车系</span>
+		</div>
+		<div id="car2" class="class02"></div>
+	</div>
+	
+	<!-- 车型3 -->
+	<div class="carType sCarType3" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectType3" href="javascript:void(0);">返回</a>
+			<span>选车型</span>
+		</div>
+		<div id="car3" class="class03"></div>
+	</div>
+	
+	<!-- 上牌时间 -->
+	<div class="carType sCarYear1" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectYear1" href="javascript:void(0);">关闭</a>
+			<span>请选择年份</span>
+		</div>
+		<div id="year1" class="class03"></div>
+	</div>
+	<!-- 上牌时间 -->
+	<div class="carType sCarYear2" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectYear2" href="javascript:void(0);">返回</a>
+			<span>请选择月份</span>
+		</div>
+		<div id="year2" class="class03"></div>
+	</div>
+	
+	<!-- 选城市 -->
+	<div class="carType sCity1" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectCity1" href="javascript:void(0);">关闭</a>
+			<span>请选择省份</span>
+		</div>
+		<div id="city1" class="class03"></div>
+	</div>
+	<!-- 选择城市 -->
+	<div class="carType sCity2" style="display:none;">
+		<div class="carTypeT">
+			<a class="closepop selectCity2" href="javascript:void(0);">返回</a>
+			<span>请选择城市</span>
+		</div>
+		<div id="city2" class="class03"></div>
+	</div>
+	
+<script type="text/javascript" src="/ershouche/hz/js/footer.js"></script>
+<script type="text/javascript" src="/ershouche/resources/js/jquery.sys.js"></script>
+<script type="text/javascript" src="/ershouche/hz/js/guzhi.js"></script>
+</body>
+</html>

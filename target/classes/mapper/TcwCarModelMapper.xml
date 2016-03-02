@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.standard.TcwCarModel">
+	<resultMap id="carBrand" type="com.tcw.car.dto.CarBrand" >
+		<result property="brand_id" column="BRAND_ID" />
+		<result property="brand_name" column="BRAND_NAME" />
+	</resultMap>
+	<resultMap id="carSeries" type="com.tcw.car.dto.CarSeries">
+		<result property="series_id" column="SERIES_ID"/>
+		<result property="series_name" column="SERIES_NAME"/>
+		<result property="manufacture" column="MANUFACTURE"/>
+	</resultMap>
+	<resultMap id="carModel" type="com.tcw.car.dto.CarModel">
+		<result property="model_id" column="MODEL_ID"/>
+		<result property="model_name" column="MODEL_NAME"/>
+		<result property="model_year" column="MODEL_YEAR"/>
+	</resultMap>
+	
+	<select id="getCarBrandList" resultMap="carBrand">
+		select MANUFACTURER_CODE as BRAND_ID, MANUFACTURER_NAME as BRAND_NAME
+		from CTM_MANUFACTURER order by MANUFACTURER_NAME
+	</select>
+	
+	<select id="getSeriesListByBrandId" parameterType="string" resultMap="carSeries">
+		select SERIES_CODE as SERIES_ID,SERIES_NAME as SERIES_NAME,MANUFACTURE
+		from CTM_LINE where MANUFACTURER_CODE=#{carBrand} order by SERIES_NAME
+	</select>
+	
+	<select id="getCarModelListBySeriesId" parameterType="string" resultMap="carModel">
+		select distinct MODEL_NAME ,YEAR_STYLE as MODEL_YEAR
+		from CTM_VEHICLE_TYPE where SERIES_CODE=#{carSeries} order by YEAR_STYLE DESC
+	</select>
+</mapper>
